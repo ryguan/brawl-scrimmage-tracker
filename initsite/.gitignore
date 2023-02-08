@@ -1,0 +1,3 @@
+#Ignore file with api keys
+credentials.py
+*.pyc 
