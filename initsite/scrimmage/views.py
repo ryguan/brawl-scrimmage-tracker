@@ -4,12 +4,25 @@ from django.http import HttpResponseRedirect
 import requests
 import time
 import credentials
-from scrimmage.forms import NameForm
+from scrimmage.forms import NameForm, MapForm
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
+
+from .models import Room
 # Create your views here.
+
+def room_create_view(request):
+    form = MapForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = MapForm()
+    context = {'form': form}
+    return render(request,'scrimmage/create.html', context)
+    
+
+
 @api_view(('POST',"GET"))
 def search_bar(request):
     

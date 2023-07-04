@@ -1,3 +1,4 @@
 #Ignore file with api keys
 credentials.py
 *.pyc 
+db.sqlite3

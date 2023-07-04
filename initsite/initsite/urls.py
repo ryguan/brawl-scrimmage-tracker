@@ -23,4 +23,4 @@ urlpatterns = [
 
 urlpatterns += [
     path('', RedirectView.as_view(url='scrimmage/', permanent=True)),
-]
+] #defaults to /admin/ on launch, can change later
