@@ -1,10 +1,10 @@
 from django import forms
-from .models import Room 
+from .models import Room,User
 class NameForm(forms.Form):
     your_name = forms.CharField(label='brawl-tag', max_length=100)
     
     
-class MapForm(forms.Form):
+class RoomForm(forms.ModelForm):
     class Meta:
         model = Room
         fields = [
@@ -19,3 +19,12 @@ class MapForm(forms.Form):
             'map_name',
         ]
     
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            'user_id',
+            'username',
+            'password',
+            'player_id',
+        ]
